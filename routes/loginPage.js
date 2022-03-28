@@ -4,8 +4,8 @@ import express from "express";
 
 // importing other files
 
-import { postlogin } from "../modules/login.module.js";
-import { signupFunction } from "../modules/signup.module.js";
+import { postlogin } from "../modules/loginModel.js";
+import { signupFunction } from "../modules/signupModule.js";
 
 // Login page router function
 const router=express.Router()
