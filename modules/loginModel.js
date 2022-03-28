@@ -1,3 +1,6 @@
+// importing packages and libraries
+import bcrypt from "bcrypt"
+
 // Other file imports
 
 import { userdetails } from "../models/userdetailsModel.js";
@@ -8,27 +11,42 @@ import { token } from "../tokenGenerator.js";
 export const postlogin = async (request, response) => {
     try {
         const { emailid, password } = request.body;
-        console.log("emailid is:", emailid, "password is:", password)
+        console.log("Email id is:", emailid);
+        console.log("Password is:", password);
 
         // checking whether the user is already in db are not
-        const check = await userdetails.findOne({ emailid: emailid });
-        console.log(check)
+        const checkUser = await userdetails.findOne({ emailid: emailid });
+        console.log(checkUser);
 
         // if user is registered
-        if (check) {
-            const { _id } = check;
-            console.log(_id)
-            const finalToken = await token({ _id })
-            response.send({ message: "Token is", finalToken })
+        if (checkUser) {
+            const storedPassword = checkUser.password;
+            console.log("Stored Password is:", password);
+            const checkPassword = await bcrypt.compare(password, storedPassword);
 
+            // check the password
+            if (checkPassword) {
+                const { _id } = checkUser;
+                console.log("_id is:", _id);
+                const finalToken = await token({ _id });
+                response.send({ message: "Token is", finalToken });
+                return;
+            }
+
+            // if password is incorrect
+            else{
+                response.send({message:"Incorrect password"});
+                return;
+            }
         }
 
         // if not registred
         else {
-            response.send({ message: "User is not registerd" })
+            response.send({ message: "User is not registerd" });
+            return;
         }
 
     } catch (error) {
-        console.log("error is:", error)
+        console.log("Error is:", error);
     }
 }
