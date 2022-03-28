@@ -1,5 +1,10 @@
+// Other file imports
+
 import { userdetails } from "../models/userdetailsModel.js";
 import { token } from "../tokenGenerator.js";
+
+// Login api request
+
 export const postlogin = async (request, response) => {
     try {
         const { emailid, password } = request.body;
