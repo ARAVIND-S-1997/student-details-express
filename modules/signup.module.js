@@ -1,14 +1,24 @@
+// other file imports
 
 import { userdetails } from "../models/userdetailsModel.js";
 import { passwordGenerator } from "../password.generator.js";
 
+// signup api call
+
 export const signupFunction = async (request, response) => {
     try {
-        const check = await signup.findOne({ emailid: request.body.emailid })
+        // finding whether the user is present or not
+
+        const check = await userdetails.findOne({ emailid: request.body.emailid })
+
+        // if user is already registered
+
         if (check) {
             response.send("email id already exist")
             return;
         }
+        // if not
+        
         else {
             const { password } = request.body;
             console.log("password is:", password)

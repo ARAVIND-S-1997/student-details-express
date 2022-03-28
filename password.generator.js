@@ -1,5 +1,8 @@
+// importing packages and libraries
 
 import bcrypt from "bcrypt";
+
+// function to create hashed password
 
 export async function passwordGenerator(value) {
     try{

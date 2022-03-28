@@ -6,8 +6,8 @@ dotenv.config();
 // files imports
 
 import {mongoconnection} from "./mongoconnection.js"
-import{loginrouter} from "./routes/login.route.js"
-import{signupRouter}from "./routes/signup.router.js"
+import{loginPage} from "./routes/loginPage.js"
+
 
 
 
@@ -20,5 +20,5 @@ app.listen(port, () => { console.log("App is running at port 9000") })
 
 // middleware
 app.use(express.json());
-app.use("/user",loginrouter);
-app.use("/user",signupRouter);
+app.use("/user",loginPage);
+
