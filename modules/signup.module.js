@@ -1,5 +1,5 @@
 
-import { userdetails } from "../models/models.js";
+import { userdetails } from "../models/userdetailsModel.js";
 import { passwordGenerator } from "../password.generator.js";
 
 export const signupFunction = async (request, response) => {
