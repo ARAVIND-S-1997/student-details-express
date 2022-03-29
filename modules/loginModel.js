@@ -3,12 +3,12 @@ import bcrypt from "bcrypt"
 
 // Other file imports
 
-import { userdetails } from "../models/userdetailsModel.js";
+import { userdetails } from "../models/signupModel.js";
 import { token } from "../tokenGenerator.js";
 
 // Login api request
 
-export const postlogin = async (request, response) => {
+export const loginFunction = async (request, response) => {
     try {
         const { emailid, password } = request.body;
         console.log("Email id is:", emailid);

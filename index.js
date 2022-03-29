@@ -9,9 +9,6 @@ import {mongoconnection} from "./mongoconnection.js"
 import{loginPage} from "./routes/loginPage.js"
 
 
-
-
-
 await mongoconnection();
 const app = express();
 const port = process.env.PORT;

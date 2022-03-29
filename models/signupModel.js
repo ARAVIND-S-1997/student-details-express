@@ -1,4 +1,8 @@
+// importing packages and libraries
+
 import mongoose from "mongoose";
+
+// schema import mongoose from "mongoose";
 
 const schema = mongoose.Schema;
 
@@ -35,3 +39,7 @@ export const signupSchema = new schema({
 
     }
 })
+
+// models
+
+export const userdetails = mongoose.model("userdetails", signupSchema)

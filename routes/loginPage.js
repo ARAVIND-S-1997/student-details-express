@@ -4,15 +4,23 @@ import express from "express";
 
 // importing other files
 
-import { postlogin } from "../modules/loginModel.js";
+import { loginFunction } from "../modules/loginModel.js";
 import { signupFunction } from "../modules/signupModule.js";
+import { forgetPasswordFunction } from "../modules/forgetPasswordModel.js";
+import { changePasswordFunction } from "../modules/changePasswordModule.js";
 
 // Login page router function
 const router=express.Router()
 export const loginPage=router
 
 // for login
-router.post("/login",postlogin);
+router.post("/login",loginFunction);
 
 // for signup
-router.post("/signup",signupFunction)
+router.post("/signup",signupFunction);
+
+// for forget password
+router.post("/forgetpassword",forgetPasswordFunction);
+
+// for change password
+router.post("/changepassword",changePasswordFunction);
