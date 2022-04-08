@@ -23,7 +23,7 @@ export const forgetPasswordFunction = async (request, response) => {
             response.send({ message: "Temporary password got updated", updatePassword });
 
             // Password reset link
-            const resetLink = `http://localhost:9000/user/forgetpassword/verify/${tempPassword}`
+            const resetLink = `http://localhost:9000/user/verify/${tempPassword}`
 
             // email message
             const message = (

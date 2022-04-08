@@ -14,7 +14,7 @@ export const signupFunction = async (request, response) => {
         // if user is already registered
 
         if (check) {
-            response.send("email id already exist");
+            response.status(422).send({message:"email id already exist"});
             return;
         }
         // if not
@@ -31,7 +31,7 @@ export const signupFunction = async (request, response) => {
                 password: finalPassword
             });
             const opertion = await data.save();
-            response.send(opertion);
+            response.send({message:"Successfully signed up"});
         }
 
     } catch (error) {
