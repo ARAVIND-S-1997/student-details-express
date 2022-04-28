@@ -2,7 +2,6 @@
 import bcrypt from "bcrypt"
 
 // Other file imports
-
 import { userdetails } from "../models/signupModel.js";
 import { token } from "../tokenGenerator.js";
 
@@ -20,6 +19,7 @@ export const loginFunction = async (request, response) => {
 
         // if user is registered
         if (checkUser) {
+            const{firstname,lastname}=checkUser
             const storedPassword = checkUser.password;
             console.log("Stored Password is:", password);
             const checkPassword = await bcrypt.compare(password, storedPassword);
@@ -29,20 +29,20 @@ export const loginFunction = async (request, response) => {
                 const { _id } = checkUser;
                 console.log("_id is:", _id);
                 const finalToken = await token({ _id });
-                response.send({ message: "Token is", finalToken,emailid });
+                response.send({ message: "Token is", finalToken,emailid,firstname,lastname });
                 return;
             }
 
             // if password is incorrect
             else{
-                response.send({message:"Incorrect password"});
+                response.status(401).send({message:"Incorrect password"});
                 return;
             }
         }
 
         // if not registred
         else {
-            response.send({ message: "User is not registerd" });
+            response.status(401).send({ message: "User is not registerd" });
             return;
         }
 

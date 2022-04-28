@@ -5,9 +5,15 @@ import express from "express";
 // importing other files
 
 import { createClassroomFunction } from "../modules/createClassroomModule.js";
+import { getClassroomFunction } from "../modules/getclassroomModule.js";
 
 // Login page router function
-const router=express.Router();
-export const homePage=router;
+const router = express.Router();
+export const homePage = router;
 
-router.post("/createclassroom",createClassroomFunction)
+
+// for creating classroom
+router.post("/createclassroom", createClassroomFunction)
+
+// for get classroom
+router.get("/myclassroom", getClassroomFunction)
