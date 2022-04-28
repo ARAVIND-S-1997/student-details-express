@@ -28,7 +28,7 @@ export const createClassroomFunction = async (request, response) => {
             if (check) {
                 const data = new createclassroom({
                     classname: request.body.classname,
-                    section: request.body.section,
+                    year: request.body.year,
                     user: emailid,
                 });
                 const operation = await data.save();

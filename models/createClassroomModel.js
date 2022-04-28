@@ -15,10 +15,8 @@ const createclassroomSchema = new schema({
         min: 1,
         max: 10,
     },
-    section: {
-        type: String,
-        min: 1,
-        max: 10,
+    year: {
+        type: Number,
     },
     students: [{
         name: {
@@ -40,9 +38,12 @@ const createclassroomSchema = new schema({
             type: Number
         },
         religion: {
-            type: String,
+            type: String
         },
         marks: [{
+            month: {
+                type: String
+            },
             tamil: {
                 type: Number
             },
