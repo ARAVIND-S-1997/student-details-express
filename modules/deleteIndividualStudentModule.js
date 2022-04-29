@@ -22,7 +22,7 @@ export const deletestudentFunction = async (request, response) => {
                 }
         }
         else {
-            response.status(400).send("Ivalid token")
+            response.status(400).send("Invalid token")
         }
     } catch (error) {
         console.log("Error is (Delete student function):", error);

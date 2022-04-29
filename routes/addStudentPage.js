@@ -24,7 +24,6 @@ router.get("/getstudent/:id", individualStudentFunction);
 // route to update an student data
 router.post("/updatestudent/:id", updateIndividualStudentFunction);
 
-
 // router to delete student
 router.post("/deletestudent/:id", deletestudentFunction);
 

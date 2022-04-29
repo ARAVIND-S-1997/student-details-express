@@ -6,6 +6,7 @@ import { createClassroomFunction } from "../modules/createClassroomModule.js";
 import { getClassroomFunction } from "../modules/getclassroomModule.js";
 import { userdetailsFunction } from "../modules/userdetailsModule.js";
 import { edituserdetails } from "../modules/edituserdetailsModule.js";
+import { deleteclassroomFunction } from "../modules/deleteclassroomModule.js";
 
 // Login page router function
 const router = express.Router();
@@ -23,3 +24,6 @@ router.get("/userdetails",userdetailsFunction);
 
 // route for edit user detail
 router.post("/edituserdetails",edituserdetails);
+
+// route for delete classroom
+router.post("/deleteclassroom/:id",deleteclassroomFunction);
