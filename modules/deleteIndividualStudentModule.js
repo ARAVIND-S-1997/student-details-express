@@ -14,10 +14,6 @@ export const deletestudentFunction=async(request,response)=>{
         const check=jwt.verify(token,process.env.Secret_key);
         if(check){
             const deleteReq=await createclassroom.updateOne({},{$pull:{students:{_id:id}}});
-            // if(deleteReq){
-            //     const findStu=await createclassroom.findOne({"students.id":classroomid});
-            //     response.status(200).send(findStu)
-            //  }
             }
             else{
                 response.status(400).send("Ivalid token")
