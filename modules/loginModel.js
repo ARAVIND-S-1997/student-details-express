@@ -29,7 +29,7 @@ export const loginFunction = async (request, response) => {
                 const { _id } = checkUser;
                 console.log("_id is:", _id);
                 const finalToken = await token({ _id });
-                response.send({ message: "Token is", finalToken,emailid,firstname,lastname });
+                response.send({ message: "Token is", finalToken,emailid,firstname,lastname,_id });
                 return;
             }
 
