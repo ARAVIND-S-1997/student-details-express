@@ -7,6 +7,7 @@ import { updateIndividualStudentFunction } from "../modules/updateIndividualStud
 import { addmarksFunction } from "../modules/addMarksModule.js";
 import { deletestudentFunction } from "../modules/deleteIndividualStudentModule.js";
 import { editmarksFunction } from "../modules/editmarksModule.js";
+import { deletemarksFunction } from "../modules/deletemarksModule.js";
 
 const router = express.Router();
 export const addStudentPage = router;
@@ -30,5 +31,8 @@ router.post("/deletestudent/:id", deletestudentFunction);
 // router to add marks
 router.post("/addmarks/:id", addmarksFunction);
 
-// router to add marks
+// router to edit marks
 router.post("/editmarks/:id", editmarksFunction);
+
+// router to edit marks
+router.post("/deletemarks/:id", deletemarksFunction);
