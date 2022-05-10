@@ -32,7 +32,7 @@ router.post("/deletestudent/:id", deletestudentFunction);
 router.post("/addmarks/:id", addmarksFunction);
 
 // router to edit marks
-router.post("/editmarks/:id", editmarksFunction);
+router.post("/editmarks/:student_id/:mark_id", editmarksFunction);
 
 // router to edit marks
 router.post("/deletemarks/:id", deletemarksFunction);

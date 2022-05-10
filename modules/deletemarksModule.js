@@ -21,10 +21,13 @@ export const deletemarksFunction = async (request, response) => {
         const check = jwt.verify(token, process.env.SECRET_KEY);
 
         if (check) {
+            // delete marks
             const removemarks = await createclassroom.updateMany({ user: emailid ,"students._id":student_id}, 
             { $pull: {"students.$.marks":{_id:id}  } });
             
             if(removemarks.modifiedCount===1){
+
+                // find student details
                 const getStudentReq = await createclassroom.findOne({user:emailid, students: { $elemMatch: { _id:student_id } } });
                 const{students}=getStudentReq;
                 response.send( students );

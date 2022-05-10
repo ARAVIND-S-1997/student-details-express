@@ -1,6 +1,10 @@
-import { createclassroom } from "../models/createClassroomModel.js"
+// packages imports
 import jwt from "jsonwebtoken";
 
+// files imports
+import { createclassroom } from "../models/createClassroomModel.js";
+
+// update students details function
 export const updateIndividualStudentFunction = async (request, response) => {
 
     try {

@@ -1,10 +1,11 @@
-
-
+// files imports
 import { createclassroom } from "../models/createClassroomModel.js";
+
+// packages imports
 import jwt from "jsonwebtoken";
 
 
-
+// add mark function
 export const addmarksFunction = async (request, response) => {
     try {
         const { token, emailid } = request.headers;
@@ -21,8 +22,11 @@ export const addmarksFunction = async (request, response) => {
         console.log("Science (Add marks functionality)", science);
         console.log("Social (Add marks functionality)", social);
         console.log("Total (Add marks functionality)", total);
+
         const check = jwt.verify(token, process.env.SECRET_KEY);
+
         if (check) {
+            // add mark 
             const addmarks = await createclassroom.updateOne({ emailid: emailid, "students._id": id },
                 { $push: { "students.$.marks": { month: month, tamil: tamil, english: english, maths: maths, science: science, social: social, total: total } } });
             response.status(200).send(addmarks);

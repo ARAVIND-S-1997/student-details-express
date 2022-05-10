@@ -17,9 +17,13 @@ export const deletestudentFunction = async (request, response) => {
 
         const check = jwt.verify(token, process.env.Secret_key);
         if (check) {
+
+            // delete student
             const deleteReq = await createclassroom.updateMany({ user: emailid },
                 { $pull: { students: { _id: id } } });
             if (deleteReq.modifiedCount === 1) {
+
+                // find students
                 const findreq = await createclassroom.findOne({ _id: classroomid });
                 response.status(200).send(findreq)
             }

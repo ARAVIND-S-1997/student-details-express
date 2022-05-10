@@ -2,10 +2,9 @@
 
 import mongoose from "mongoose";
 
-// schema import mongoose from "mongoose";
-
 const schema = mongoose.Schema;
 
+// signup schema
 export const signupSchema = new schema({
     firstname: {
         type: String,
@@ -32,14 +31,9 @@ export const signupSchema = new schema({
     },
     password: {
         type: String,
-        // minlength:8,
-        // maxlength:12,
         required: true,
-        // match:[/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, "Password should have at least one uppercase letter, one lowercase letter, one number and one special character"]
-
     }
 })
 
 // models
-
 export const userdetails = mongoose.model("userdetails", signupSchema)

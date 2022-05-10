@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 
 const schema = mongoose.Schema
 
+// schema
 const createclassroomSchema = new schema({
     user: {
         type: String,
@@ -65,4 +66,6 @@ const createclassroomSchema = new schema({
         }]
     }]
 })
+
+// model
 export const createclassroom = mongoose.model("classroom", createclassroomSchema)

@@ -17,8 +17,10 @@ export const forgetPasswordFunction = async (request, response) => {
         if (checkUser) {
             const { _id } = checkUser;
             console.log("_id is:", _id);
+
             const tempPassword = await token({ _id });
             console.log("Temporary password is:", tempPassword);
+            
             const updatePassword = await userdetails.updateOne({ emailid }, { $set: { password: tempPassword } });
             response.send({ message: "Temporary password got updated", updatePassword });
 
